@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <!-- Features -->
+    <div class="wrapper style1">
+
+        <section id="resultado" class="container special">
+            <header>
+                <h2>Resultado</h2>
+                <p>Ver los resultados de ejecución del algoritmo de búsqueda</p>
+            </header>
+            <div id="resultado-matriz" class="row">
+                {{ tablero | raw}}
+            </div>
+            <footer>
+                <a href="#resultado" class="button circled scrolly">Regresar</a>
+            </footer>
+        </section>
+
+    </div>
+{% endblock body %}

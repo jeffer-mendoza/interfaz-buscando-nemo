@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Búscando a Nemo 3</title>
+    <link rel="icon" type="image/x-icon" href="{{ app.request.basepath }}/web/favicon.png"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link href="{{ app.request.basepath }}/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="{{ app.request.basepath }}/assets/css/main.css"/>
+</head>
+
+<body class="{{ class }}">
+<!-- homepage -->
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <div id="header">
+
+        <!-- Inner -->
+        {% block inner %}
+
+        {% endblock inner %}
+
+        <!-- Nav -->
+        <nav id="nav">
+            <ul>
+                <li><a href="{{ app.url_generator.generate('index') }}">Inicio</a></li>
+                <li><a href="{{ app.url_generator.generate('busqueda') }}">Búsqueda</a></li>
+                <li><a href="{{ app.url_generator.generate('resultado') }}">Resultado</a></li>
+
+            </ul>
+        </nav>
+
+    </div>
+    {% block body %}
+        {#                Heredar esta plantilla y embeber el codigo en este bloque     #}
+        {#                {% extends 'base.html.twig' %} {% block body %} {% endblock body %} #}
+
+    {% endblock body %}
+
+    <!-- Footer -->
+    <div id="footer">
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <!-- Contact -->
+                <section class="contact">
+                    <header>
+                        <h3>Búscando a Nemo 3</h3>
+                    </header>
+                    <p>
+                    <ul>
+                        <li>Andrés Felipe Valencia</li>
+                        <li>Jefferson Mendoza</li>
+                        <li>Oliver Zuluaga</li>
+                    </ul>
+
+                    </p>
+                </section>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <!-- Copyright -->
+                <div class="copyright">
+                    &copy; Jefferson, Oliver y Andrés. All rights reserved.</br>
+                    Design: <a target="_blank" href="http://html5up.net">HTML5 UP</a></br>
+                    <a target="_blank" href="https://github.com/jeffersonM/buscando-nemo">
+                        Descargar código fuente</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- home page -->
+
+{#        <link rel="stylesheet" href="{{ app.request.basepath }}/assets/css/bootstrap.min.css" />#}
+<!-- Scripts -->
+<script src="{{ app.request.basepath }}/assets/js/jquery.min.js"></script>
+<script src="{{ app.request.basepath }}/assets/js/jquery.dropotron.min.js"></script>
+<script src="{{ app.request.basepath }}/assets/js/jquery.scrolly.min.js"></script>
+<script src="{{ app.request.basepath }}/assets/js/jquery.onvisible.min.js"></script>
+<script src="{{ app.request.basepath }}/assets/js/skel.min.js"></script>
+<script src="{{ app.request.basepath }}/assets/js/util.js"></script>
+<script src="{{ app.request.basepath }}/assets/js/main.js"></script>
+{% block javascript %}
+{% endblock javascript %}
+</body>
+</html>

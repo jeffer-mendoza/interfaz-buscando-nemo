@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <!-- Main -->
+    <div id="busqueda" class="wrapper style1">
+
+        <article id="main" class="container special">
+            <header>
+                <h2>Búsqueda</h2>
+                <p>
+                    Realizar la búsqueda utilizando los algoritmos informados y no informados.
+                </p>
+            </header>
+            <p>
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <form method="POST" ACTION="{{ app.url_generator.generate('buscar') }}" enctype="multipart/form-data">
+                        <div class="input-group">
+                            <span class="input-group-addon">Escenario(matriz)</span>
+                            <input type="file" name="file" class="form-control"/>
+                        </div>
+                        <br/>
+                        <div class="input-group">
+                            <span class="input-group-addon">Algoritmo de búsqueda</span>
+                            <select name="algoritmo" class="form-control">
+                                <option value="amplitud">Amplitud</option>
+                                <option value="profundidad">Profundidad</option>
+                                <option value="costouniforme">Costo Uniforme</option>
+                                <option value="avara">Avara</option>
+                                <option value="aestrella">A*</option>
+                            </select>
+                        </div>
+                        <br/>
+                        <input class="btn bottom" type="submit" value="Ejecutar">
+                    </form>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="alert alert-info">
+                        1. Carga el escenario(matriz)</br>
+                        2. Selecciona el <strong class="alert-info">algoritmo de búsqueda </strong></br>
+                        3. Ejecuta el programa para realizar la búsqueda de Nemo, Marlin y Dory.
+                    </div>
+                </div>
+            </div>
+            </p>
+        </article>
+
+    </div>
+{% endblock %}

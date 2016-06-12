@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block inner %}
+    <div class="inner">
+        <header>
+            <h1><a href="index.php" id="logo">Búscando a Nemo 3</a></h1>
+            <hr/>
+            <p>Introducción a la Inteligencia Artificial</p>
+        </header>
+        <footer>
+            <a href="{{ app.url_generator.generate('busqueda') }}" class="button circled scrolly">Buscar</a>
+        </footer>
+    </div>
+{% endblock inner%}
+
+
