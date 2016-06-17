@@ -87,27 +87,40 @@ class Controller
         $tablero .= '<tr><td>Tiempo de ejecución</td><td>'.$array[1].'</td></tr>';
         $tablero .= '</table></div>';
         fclose($fp);
-        $n = count($array) - 8;
+        $n = count($array) - 11;
         $tamanoMatriz = intval($array[9]) + 1;
+        if($tamanoMatriz <= 6){
+            $size = 100;
+            $container = 500;
+        }else{
+            if($tamanoMatriz > 6 && $tamanoMatriz <= 11){
+                $size = 70;
+                $container = 700;
+
+            }else{
+                $size = 50;
+                $container = 1000;
+            }
+        }
         $j = 10;
         for ($i = 1;$i < $n; $i++) {
             if ($i % $tamanoMatriz == 1) {
-                $tablero .= '<div class="col-lg-12"><table width="400" class="table-bordered">';
+                $tablero .= '<div class="col-lg-12"><table width="100" class="table-bordered">';
                 $tablero .= '<div>'.$array[$j].'</div>';
             } else {
-                $tablero .= $this->crearFilas(explode(" ", $array[$j],$tamanoMatriz - 1), $app['request']);
+                $tablero .= $this->crearFilas(explode(" ", $array[$j],$tamanoMatriz - 1), $app['request'],$size);
                 if ($i % $tamanoMatriz == 0) {
-                    $tablero .= '</table></div><div class="col-lg-1"><span class="icon fa-arrow-down"></span></div>';
+                    $tablero .= '</table></div>';
                 }
             }
             $j++;
         }
-        $response = $app['twig']->render('resultado.html.twig', array('class' => 'no-sidebar', 'tablero' => $tablero));
+        $response = $app['twig']->render('resultado.html.twig', array('class' => 'no-sidebar', 'tablero' => $tablero, 'container'=>$container));
 
         return new Response($response, 200, array('Cache-Control' => 's-maxage=3600, public'));
     }
 
-    function crearFilas($columnas, $request)
+    function crearFilas($columnas, $request,$size)
     {
         $fila = '<tr>';
         $imagenes = array('0.jpg', '1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.png');
@@ -115,7 +128,7 @@ class Controller
         for ($i = 0; $i < $n; $i++) {
             $columna = $columnas[$i];
             $src = $request->getBasePath() . "/img/" . $imagenes[intval(substr($columna, 0))];
-            $fila .= '<td><img width="80" height="80" src="' . $src . '"></td>';
+            $fila .= '<td><img width="'.$size.'" height="'.$size.'" src="' . $src . '"></td>';
         }
         $fila .= '</tr>';
 

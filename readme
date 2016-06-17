@@ -1,0 +1,28 @@
+1. Copiar el directorio por default  del servidor o la que se tenga configurada
+por ejemplo(/var/www)
+
+2. Asignar el directorio lib al usuario de apache 'chown www-data:www-data lib -R'
+
+3. Darle todos los permisos al directorio lib 'chmod 777 lib -R'
+
+*Recuerde que los puntos 2 y 3 deben ejecutarse como el usuario root o superusuario
+
+4. Ingresar a la ruta a través de la dirección http://localhost/buscando-nemo/web/app.php
+
+Nota: La forma de como usar la aplicación se encuentra en el informe
+
+*********************************************************************************************
+
+Si solo se desea ejecutar el archivo .jar
+
+Ingresar al directorio lib y ejecutar
+
+java -jar search-nemo.jar 'algoritmo' 'archivo-entrada'
+
+'algoritmo' = {amplitud, costouniforme, profundidad, avara, aestrella}
+
+'archivo-entrada'= la ruta donde se encuentra la matriz que se usara
+
+*********************************************************************************************
+
+Si se necesita soporte adicional, por favor comunicarse a jefferson.mendoza@correounivalle.edu.co

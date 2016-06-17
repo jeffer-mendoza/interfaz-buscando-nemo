@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block body %}
+
+    <!-- SlidesJS Required: -->
     <!-- Features -->
     <div class="wrapper style1">
 
@@ -8,13 +10,39 @@
                 <h2>Resultado</h2>
                 <p>Ver los resultados de ejecución del algoritmo de búsqueda</p>
             </header>
-            <div id="resultado-matriz" class="row">
-                {{ tablero | raw}}
+            <div class="container">
+                <div id="slides">
+                    {{ tablero | raw }}
+                </div>
             </div>
             <footer>
                 <a href="#resultado" class="button circled scrolly">Regresar</a>
             </footer>
         </section>
-
+        {#{{ tablero | raw }}#}
     </div>
+
 {% endblock body %}
+{% block javascript %}
+    <!-- SlidesJS Required: Link to jQuery -->
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <!-- End SlidesJS Required -->
+
+    <!-- SlidesJS Required: Link to jquery.slides.js -->
+    <script src="{{ app.request.basepath }}/assets/js/jquery.slides.min.js"></script>
+    <script>
+        $(function () {
+            $('#slides').slidesjs({
+                width: 940,
+                height: {{ container }},
+                play: {
+                    active: true,
+                    auto: true,
+                    interval: 2000,
+                    swap: true
+                }
+            });
+        });
+    </script>
+
+{% endblock javascript %}
